@@ -14,11 +14,6 @@ class Jeweler
       end
 
       def run
-        unless clean_staging_area?
-          system "git status"
-          raise "Unclean staging area! Be sure to commit or .gitignore everything first. See `git status` above."
-        end
-
         repo.checkout('master')
 
         regenerate_gemspec!

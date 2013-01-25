@@ -12,14 +12,9 @@ class Jeweler
       end
 
       def run
-        unless clean_staging_area?
-          system "git status"
-          raise "Unclean staging area! Be sure to commit or .gitignore everything first. See `git status` above."
-        end
-
         repo.checkout('master')
         repo.push
-        
+
         if release_not_tagged?
           output.puts "Tagging #{release_tag}"
           repo.add_tag(release_tag)
