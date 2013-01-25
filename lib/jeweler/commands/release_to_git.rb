@@ -17,7 +17,7 @@ class Jeweler
 
         if release_not_tagged?
           output.puts "Tagging #{release_tag}"
-          repo.add_tag(release_tag)
+          system "git tag -am 'Tagging #{release_tag}' #{release_tag}"
 
           output.puts "Pushing #{release_tag} to origin"
           repo.push('origin', release_tag)
