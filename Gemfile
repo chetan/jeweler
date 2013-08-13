@@ -4,19 +4,22 @@ source "http://gems.github.com"
 
 gem "rake"
 gem "git", ">= 1.2.5"
+gem "nokogiri", "1.5.10"
+gem "github_api", "0.10.1"
+gem "highline", ">= 1.6.15"
 gem "bundler", "~> 1.0"
 gem "rdoc"
+gem "builder"
 
 group :development do
-  gem "yard", "~> 0.7.4"
+  gem "yard", "~> 0.8.5"
   gem "rdoc"
   gem "bluecloth"
   gem "cucumber", "~> 1.1.4"
-  gem "rcov"
 end
 
 group :test do
-  gem "timecop"
+  gem "timecop", "0.6.1"
   gem "activesupport", "~> 2.3.5"
   gem "shoulda"
   gem "mhennemeyer-output_catcher"
@@ -36,5 +39,4 @@ end
 
 
 group :debug do
-  gem (RUBY_VERSION =~ /^1\.9/ ? "ruby-debug19" : "ruby-debug")
 end

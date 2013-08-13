@@ -21,8 +21,8 @@ Jeweler::Tasks.new do |gem|
   gem.summary = "Opinionated tool for creating and managing RubyGem projects"
   gem.description = "Simple and opinionated helper for creating Rubygem projects on GitHub"
   gem.license = "MIT"
-  gem.authors = ["Josh Nichols"]
-  gem.email = "josh@technicalpickles.com"
+  gem.authors = ["Josh Nichols", "Yusuke Murata"]
+  gem.email = ["josh@technicalpickles.com", "info@muratayusuke.com"]
   gem.files.include %w(lib/jeweler/templates/.document lib/jeweler/templates/.gitignore)
 
   # dependencies defined in Gemfile
@@ -53,12 +53,6 @@ end
 require 'yard'
 YARD::Rake::YardocTask.new do |t|
   t.files   = FileList['lib/**/*.rb'].exclude('lib/jeweler/templates/**/*.rb')
-end
-
-require 'rcov/rcovtask'
-Rcov::RcovTask.new(:rcov => :check_dependencies) do |rcov|
-  rcov.libs << 'test'
-  rcov.pattern = 'test/**/test_*.rb'
 end
 
 require 'cucumber/rake/task'
