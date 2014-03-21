@@ -6,6 +6,8 @@ Jeweler provides the noble ruby developer with two primary features:
  * a scaffold generator for starting new RubyGem projects
 
 [![Build Status](https://travis-ci.org/technicalpickles/jeweler.png)](https://travis-ci.org/technicalpickles/jeweler)
+[![Coverage Status](https://coveralls.io/repos/technicalpickles/jeweler/badge.png)](https://coveralls.io/r/technicalpickles/jeweler)
+[![Dependency Status](https://www.versioneye.com/ruby/jeweler/2.0.0/badge.png)](https://www.versioneye.com/ruby/jeweler/2.0.0)
 
 ## Hello, world
 
@@ -64,6 +66,19 @@ This will automatically:
  * Generate `hello-gem.gemspec` and commit it
  * Use `git` to tag `v0.1.0` and push it
  * Build `hello-gem-0.1.0.gem` and push it to [rubygems.org](http://rubygems.org/gems/)
+
+`rake release` accepts REMOTE(default: `origin`), LOCAL_BRANCH(default: `master`), REMOTE_BRANCH(default: `master`) and BRANCH(default: master)as options.
+
+    $ rake release REMOTE=upstream LOCAL_BRANCH=critical-security-fix REMOTE_BRANCH=v3
+
+This will tag and push the commits on your local branch named `critical-security-fix` to branch named `v3` in remote named `upstream` (if you have commit rights
+on `upstream`) and release the gem.
+
+    $ rake release BRANCH=v3
+
+If both remote and local branches are the same, use `BRANCH` option to simplify.
+This will tag and push the commits on your local branch named `v3` to branch named `v3` in remote named `origin` (if you have commit rights
+on `origin`) and release the gem.
 
 ### Version bumping
 
