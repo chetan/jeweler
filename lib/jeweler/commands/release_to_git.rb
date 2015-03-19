@@ -17,10 +17,11 @@ class Jeweler
         local_branch = args[:local_branch] || branch
         remote_branch = args[:remote_branch] || branch
 
-        unless clean_staging_area?
-          system "git status"
-          raise "Unclean staging area! Be sure to commit or .gitignore everything first. See `git status` above."
-        end
+        # Disabled by chetan
+        # unless clean_staging_area?
+        #   system "git status"
+        #   raise "Unclean staging area! Be sure to commit or .gitignore everything first. See `git status` above."
+        # end
 
         repo.checkout(local_branch)
         repo.push(remote, "#{local_branch}:#{remote_branch}")
